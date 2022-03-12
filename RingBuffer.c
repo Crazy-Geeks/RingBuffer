@@ -17,7 +17,7 @@
  */
 
 /**
- * @brief Init ring bufer
+ * @brief Init ring buffer
  *
  * @param[in] buf Pointer to the allocated buffer
  * @param[in] size Size of buffer
@@ -34,7 +34,7 @@ RINGBUF_STATUS RingBuf_Init(void *buf, u16_t size, size_t cellsize, RINGBUF_t *r
 }
 
 /**
- * @brief Clear ring bufer
+ * @brief Clear ring buffer
  * @note Disable interrupts while clearing
  *
  * @param[in] rb #RINGBUF_t structure instance
@@ -99,10 +99,10 @@ RINGBUF_STATUS RingBuf_DataPut(const void *data, u16_t len, RINGBUF_t *rb) {
     if (rb->buf == NULL) return RINGBUF_PARAM_ERR;
     if (len > rb->size)
         return RINGBUF_OVERFLOW;
-   const char *input = data; // recast pointer
+    const char *input = data; // recast pointer
     // INPUT data index start address
     size_t s_addr = 0;
-    // avaliable space in the end of buffer
+    // available space in the end of buffer
     size_t space = rb->size - rb->head;
     if (len > space) { // if len > available space
         // copy data to available space
@@ -155,7 +155,7 @@ RINGBUF_STATUS RingBuf_CellRead(void *data, RINGBUF_t *rb) {
  * @brief Read some next data from the buffer
  *
  * @param[out] data Data from the buffer
- * @param[in] len Lenght of data to be read [bytes]
+ * @param[in] len Length of data to be read [bytes]
  * @param[in] rb #RINGBUF_t structure instance
  * @return #RINGBUF_STATUS enum
  */
@@ -202,8 +202,8 @@ RINGBUF_STATUS RingBuf_CellWatch(void *data, RINGBUF_t *rb) {
  * @brief Watch current data in the buf
  * @note Reads data without shifting in the buffer
  *
- * @param[out] data Data from bufer
- * @param[in] len Lenght of data to be read [bytes]
+ * @param[out] data Data from buffer
+ * @param[in] len Length of data to be read [bytes]
  * @param[in] rb #RINGBUF_t structure instance
  * @return #RINGBUF_STATUS enum
  */
@@ -214,7 +214,7 @@ RINGBUF_STATUS RingBuf_DataWatch(void *data, u16_t len, RINGBUF_t *rb) {
         return RINGBUF_OVERFLOW;
     // OUTPUT data index start address
     u16_t s_addr = 0;
-    // avaliable space in the end of buffer
+    // available space in the end of buffer
     u16_t space = rb->size - rb->tail;
     u16_t loc_tail = rb->tail;
     if (len > space) { // if len > available space
