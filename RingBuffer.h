@@ -5,6 +5,7 @@
  * @version 1.2
  * @date	05-March-2022
  * @brief   Header file for RingBuffer lib
+ * @note    https://crazygeeks.ru/c-ringbuffer/
  *******************************************
  */
 #ifndef RING_BUF_H_
